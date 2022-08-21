@@ -21,7 +21,7 @@ public class MultiplayerPage extends Page {
         driverWrapper.get(MULTIPLAYER_URL);
     }
 
-    public void play() throws InterruptedException {
+    public void play() {
         String name = "Blue switches";
 
         driverWrapper.findElement(id("username")).sendKeys(name);
@@ -30,7 +30,7 @@ public class MultiplayerPage extends Page {
         startNewGame();
     }
 
-    private void startNewGame() throws InterruptedException {
+    private void startNewGame() {
         waitForOverlayer();
 
         WebElement input = driverWrapper.waitUntil(driver -> driver.findElement(xpath("//input[@type='text']")));

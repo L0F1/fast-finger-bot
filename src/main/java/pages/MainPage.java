@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-import static org.openqa.selenium.By.*;
+import static org.openqa.selenium.By.className;
+import static org.openqa.selenium.By.id;
 
 public class MainPage extends Page {
     private static final String FAST_FINGERS_URL = "https://10fastfingers.com/typing-test/russian";
@@ -20,9 +20,9 @@ public class MainPage extends Page {
         driverWrapper.get(FAST_FINGERS_URL);
         driverWrapper.waitUntil(driver -> driver.findElement(className("CybotCookiebotDialogContentWrapper")).isDisplayed());
         driverWrapper.findElement(id("CybotCookiebotDialogBodyButtonDecline")).click();
-    };
+    }
 
-    public void typingTest() throws InterruptedException {
+    public void typingTest() {
         WebElement input = driverWrapper.waitUntil(driver -> driver.findElement(id("inputfield")));
         WebElement words = driverWrapper.waitUntil(driver -> driver.findElement(id("words")));
 

@@ -15,19 +15,19 @@ public class Main {
         driverWrapper = new DriverWrapper(new ChromeDriver());
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         init();
 
         multiplayer();
     }
 
-    private static void typingTest() throws InterruptedException {
+    private static void typingTest() {
         MainPage mainPage = new MainPage(driverWrapper);
         mainPage.navigate();
         mainPage.typingTest();
     }
 
-    private static void multiplayer() throws InterruptedException {
+    private static void multiplayer() {
         MultiplayerPage multiplayerPage = new MultiplayerPage(driverWrapper);
         multiplayerPage.navigate();
         multiplayerPage.play();

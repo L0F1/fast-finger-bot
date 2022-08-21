@@ -23,11 +23,11 @@ public abstract class Page {
             .forEach(l -> {
                 if (l.startsWith("delay")) {
                     String delay = l.substring(l.lastIndexOf("=") + 1);
-                    DELAY = delay.isBlank() ? 0 : Long.parseLong(delay);
+                    DELAY = delay.isBlank() ? 1 : Long.parseLong(delay);
                 }
                 if (l.startsWith("dispersion")) {
                     String dispersion = l.substring(l.lastIndexOf("=") + 1);
-                    DISPERSION = dispersion.isBlank() ? 0 : Integer.parseInt(dispersion);
+                    DISPERSION = dispersion.isBlank() ? 1 : Integer.parseInt(dispersion);
                 }
             })
         );
@@ -43,7 +43,7 @@ public abstract class Page {
         driverWrapper.execute().quit();
     }
 
-    protected void enterWords(WebElement words, WebElement input) throws InterruptedException {
+    protected void enterWords(WebElement words, WebElement input) {
         WebElement highlightedWord = driverWrapper.waitUntil(driver -> words.findElement(className("highlight")));
 
         while (highlightedWord != null) {
